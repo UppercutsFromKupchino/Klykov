@@ -32,14 +32,6 @@
 					<a href = "{{ url_for('patientprofile') }}"> Мой профиль </a><br>
 					<a href="{{ url_for('logout') }}" class="redirect-home-logout">Выйти из профиля</a>
 				{% endif %}
-
-				{% if current_user.is_authenticated%}
-					Добрый день, {{ login_user }}<br>
-					<a href = "{{ url_for('doctorcoupons') }}"> Посмотреть, кто ко мне записался </a><br>
-                    {% if current_user.is_authenticated %}
-					<a href="{{ url_for('logout') }}" class="redirect-home-logout">Выйти из профиля</a>
-                    {% endif %}
-				{% endif %}
 			</main>
 				
 			<footer>Тут неинтересная информация</footer>
