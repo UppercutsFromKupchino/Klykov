@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <a href="{{ url_for('index') }}">Домашняя страница</a>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+     <ul>
+         {% for message in messages %}
+         <li>{{ message }}</li>
+         {% endfor %}
+     </ul>
+    {% endif %}
+    {% endwith %}
+    Вы {{ pat_fio}} <br>
+    Ваш email {{ pat_email }} <br>
+    Ваш возраст {{ pat_age}} <br>
+    <form action="{{ url_for('patientprofile') }}" method="post">
+        {{ update_age.age(placeholder_="Возраст") }}<br>
+        {{ update_age.submit() }}
+    </form>
+    <a href = "{{ url_for('patientcoupons') }}"> Посмотреть свои записи </a> <br>
+</body>
+</html>

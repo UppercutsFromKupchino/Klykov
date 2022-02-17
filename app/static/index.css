@@ -1,0 +1,57 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+html{
+    font-size: 10px;
+}
+
+body
+{
+    font-size: 20px;
+}
+.cont{
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    grid-template-rows: 100px 1fr 100px;
+
+}
+
+header{
+    background-color: aqua;
+    font-size: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.header1{
+    font-size: 2rem;
+}
+.header2{
+    font-size: 7rem;
+    color: red;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.header3{
+    text-align: right;
+    font-size: 2rem;
+    margin: 0 10px 0 0;
+
+}
+
+.pointer{
+    cursor: pointer;
+}
+main{
+    font-size: 2rem;
+}
+footer{
+    background-color: blue;
+    font-size: 3rem;
+}

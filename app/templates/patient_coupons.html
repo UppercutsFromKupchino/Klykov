@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+<head>
+    <meta charset="UTF-8">
+    <title>Ваши записи к врачам</title>
+</head>
+<body>
+    <a href="{{ url_for('index') }}">Домашняя страница</a>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+     <ul>
+         {% for message in messages %}
+         <li>{{ message }}</li>
+         {% endfor %}
+     </ul>
+    {% endif %}
+    {% endwith %}
+    {% if coupons %}
+    <table>
+        <thead>
+            <tr>
+                <th>Дата записи</th>
+                <th>Время записи</th>
+                <th>ФИО врача</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(coupons_len) %}
+                <tr>
+                    <td>{{ coupons[i][0] }}</td>
+                    <td>{{ coupons[i][1] }}</td>
+                    <td>{{ coupons[i][2] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% elif not coupons %}
+    <p>Вы ещё не записались ко врачу</p>
+    {% endif %}
+</body>
+</html>

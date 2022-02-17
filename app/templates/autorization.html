@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <a href="{{ url_for('index') }}">На главную</a>
+  </div>
+  <h3>Авторизация</h3>
+  <hr>
+  <form action="{{ url_for('autorization') }}" method="post">
+      {{ login_form.hidden_tag() }}
+      {{ login_form.email_loginform(placeholder="email") }}<br><br>
+      {{ login_form.password_loginform(placeholder="Password") }}<br><br>
+      {{ login_form.submit_loginform() }}
+  </form>
+  Для регистрации нажмите <a href="{{ url_for('registration') }}">сюда</a>
+</body>
+</html>

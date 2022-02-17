@@ -1,0 +1,48 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+	  <title>Document</title>
+	</head>
+	<body>
+		<div class="cont">
+			<header>
+				<div class="header1 pointer">
+					Это что, поликлиника?
+				</div>
+				<div class="header2 pointer">
+					Мой сайт
+				</div>
+				<div class="header3">
+                    {% if not current_user.is_authenticated %}
+					<div class="pointer"><a href="{{ url_for('autorization') }}">Авторизация</a></div>
+                    {% endif %}
+					<div class="pointer"><a href="{{ url_for('registration') }}">Регистрация</a></div>
+				</div>
+			</header>
+			<main>
+				<div>
+					Для записи к врачу нажмите <a href="{{ url_for('appointment') }}">здесь</a>
+				</div>
+				{% if current_user.is_authenticated%}
+					Привет, {{ login_user }} <br>
+					<a href = "{{ url_for('patientprofile') }}"> Мой профиль </a><br>
+					<a href="{{ url_for('logout') }}" class="redirect-home-logout">Выйти из профиля</a>
+				{% endif %}
+
+				{% if current_user.is_authenticated%}
+					Добрый день, {{ login_user }}<br>
+					<a href = "{{ url_for('doctorcoupons') }}"> Посмотреть, кто ко мне записался </a><br>
+                    {% if current_user.is_authenticated %}
+					<a href="{{ url_for('logout') }}" class="redirect-home-logout">Выйти из профиля</a>
+                    {% endif %}
+				{% endif %}
+			</main>
+				
+			<footer>Тут неинтересная информация</footer>
+		</div>
+	</body>
+	</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Записаться ко врачу</title>
+</head>
+<body>
+    <a href="{{ url_for('index') }}">Домашняя страница</a>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+     <ul>
+         {% for message in messages %}
+         <li>{{ message }}</li>
+         {% endfor %}
+     </ul>
+    {% endif %}
+    {% endwith %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Время приёма</th>
+                    <th>ФИО врача</th>
+                    <th>Записаться ко врачу</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(timetable_len) %}
+                    <tr>
+                        <td>{{ timetable[i][0] }}</td>
+                        <td>{{ timetable[i][1] }}</td>
+                        <td>
+                            <form action="{{ url_for('add_coupon', date=date, doctor=doctor) }}" method="post">
+                                {{ execute_timetable.time(value=timetable[i][0]) }}
+                                {{ execute_timetable.submit_execute() }}
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</body>
+</html>

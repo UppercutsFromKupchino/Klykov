@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <div>
+        <a href="{{ url_for('index') }}">На главную</a>
+    </div>
+    <form action="{{ url_for('registration') }}" method="post">
+        <h3>Register</h3><br>
+        {{ reg_form.hidden_tag() }}
+        {{ reg_form.email_regform(placeholder="email") }}<br><br>
+        {{ reg_form.password_regform(placeholder="пароль") }}<br><br>
+        {{ reg_form.fio_regform(placeholder="ФИО") }}<br><br>
+        Пол
+        {{ reg_form.sex_regform() }}<br><br>
+        Возраст
+        {{ reg_form.age_regform() }}<br><br>
+        {{ reg_form.submit_regform(placeholder="Регистрация") }}
+    </form>
+    Для авторизации нажмите <a href="{{ url_for('autorization') }}">сюда</a>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div>
+    <p>Выберите Врача</p>
+    <form action="{{ url_for('after_spec') }}" method="post">
+    <div>
+    <select name="select-doctor">
+        {% for key, value in doc_select_dict.items() %}
+        <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+    </select>
+    </div>
+    <input type="submit" value="Дальше">
+    </form>
+  </div>
